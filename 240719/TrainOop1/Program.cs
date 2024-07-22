@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace TrainOop1
 {
-    class chracter 
+    
+    internal class Program
+    {
+        class chracter 
     {
         private int level;
         private int hp;
@@ -44,10 +47,9 @@ namespace TrainOop1
         }
 
     }
-    internal class Program
-    {
         static void Main(string[] args)
         {
+
         }
     }
 }
