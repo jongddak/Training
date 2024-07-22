@@ -38,9 +38,9 @@ namespace TrainOop1
             Console.WriteLine($"{damage}의 피해를 입힘");
          
         }
-        public void Hit()
+        public void Hit(int damage)
         {
-            Console.WriteLine($"{damage}의 피해를 입힘");
+            Console.WriteLine($"{damage}의 피해를 받음");
         }
 
     }
