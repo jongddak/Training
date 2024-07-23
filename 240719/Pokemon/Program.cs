@@ -8,18 +8,31 @@ namespace Pokemon
 {
     class Trainer {
         public string Name;
-      //  public const int maxMonsters = 6; 
-        public string[] Monsters;
+        public Monster[] Monsters;
         
 
 
         public Trainer(string name) {
         
            this.Name = name;
-            //  this.Monsters = new string[maxMonsters];
-            this.Monsters =new string[5];
+           
+            Monsters =new Monster[6];
             Monsters[0] = new Monster("파이리"); //스타팅
         }
+
+        //public void GetMonster(Monster monster) {
+
+        //    for (int i = 0; i < 6; i++) 
+        //    {
+        //        if (monsters[i] == null) {
+
+        //            monster[i] = Monster
+        //        }
+        //    }
+            
+        
+        
+        //}
     
     
     
