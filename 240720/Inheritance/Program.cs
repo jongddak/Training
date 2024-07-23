@@ -148,7 +148,10 @@ namespace Inheritance
            
         }
 
-        // 오버로딩과 오버라이딩 
+        // 오버로딩 같은 이름의 메서드를 여러 개 정의하고 매개변수의 수나 타입을 다르게 하여 구분가능
+        // 오버로딩을 통해 하나의 메서드 이름으로 다양한 처리를 수행 가능. 
+
+        // 오버라이딩 상속된 클래스의 메서드를 재정의 해 해당 메서드의 동작을 자식 클래스에 맞게 변경하는 것 virtual, abstract , override .키워드로 사용 
         static void Main(string[] args)
         {
            Aug aug = new Aug("Aug","5.56mm",40,42,0.085d,false,true,true);
