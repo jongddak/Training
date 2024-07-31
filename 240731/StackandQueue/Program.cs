@@ -24,12 +24,12 @@
 
                     if (!IsMatchingPair(open, ch))
                     {
-                        Console.WriteLine("미완"); 
+                        Console.WriteLine("미완");
                     }
                 }
             }
 
-            Console.WriteLine("완"); 
+            Console.WriteLine("완");
         }
 
         static bool IsMatchingPair(char open, char close)
@@ -38,15 +38,58 @@
                    (open == '[' && close == ']') ||
                    (open == '(' && close == ')');
         }
-    
 
-    static void Main(string[] args)
+        static int[] CalcWorkDays(int[] workHours)
         {
-           string str = Console.ReadLine();
-            IsValid(str);
+            int hoursPerDay = 8; // 일 8시간
+            int currentDay = 1;
+            int remainingHour = hoursPerDay;  // 잔여시간 
+            int[] workDays = new int[workHours.Length];
+
+            for (int i = 0; i < workHours.Length; i++)   //
+            {
+                int hoursLeft = workHours[i];
+
+                while (hoursLeft > 0)
+                {
+                    if (hoursLeft <= remainingHour)
+                    {
+                        workDays[i] = currentDay;
+                        remainingHour -= hoursLeft;
+                        hoursLeft = 0;
+                    }
+                    else
+                    {
+                        hoursLeft -= remainingHour;
+                        currentDay++;
+                        remainingHour = hoursPerDay;
+                    }
+                }
+
+                if (remainingHour == 0)
+                {
+                    currentDay++;
+                    remainingHour = hoursPerDay;
+                }
+            }
+
+            return workDays;
+        }
 
 
 
+
+        static void Main(string[] args)
+        {
+            //string str = Console.ReadLine();
+            //IsValid(str);
+
+
+
+            int[] workHours = { 4, 4, 12, 10, 2, 10 }; // 작업 시간 배열
+            int[] workDays = CalcWorkDays(workHours);
+
+            Console.WriteLine("작업 완료 날짜: " + string.Join(", ", workDays)); // 결과 배열 출력
         }
     }
 }
