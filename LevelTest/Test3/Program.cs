@@ -12,7 +12,7 @@
             answer.Add(array[count]);      // 배열 맨처음 숫자는 그냥 넣음 
             for (int i = 0; i < array.Count; i++)
             {
-                if (answer[count] != array[i])    //비교해서 다르면 추가
+                if (answer[count] != array[i])    //두번째 부턴 비교해서 다르면 추가
                 { 
                     answer.Add(array[i]);
                     count++;
