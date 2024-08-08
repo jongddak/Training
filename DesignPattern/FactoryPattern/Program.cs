@@ -64,42 +64,106 @@
     {
         static void Main(string[] args)
         {
+            Item weapon = ItemFactory.Create(ItemType.Weapon);
+            Item potion = ItemFactory.Create(ItemType.Potion);
+            Item armor = ItemFactory.Create(ItemType.Armor);
+            Item food = ItemFactory.Create(ItemType.Food);
+
+            Console.WriteLine(weapon.name);
+            Console.WriteLine(weapon.price);
+
+            Console.WriteLine(armor.name);
+            Console.WriteLine(food.name);
+            Console.WriteLine(food.price);
+            Console.WriteLine(potion.name);
+
             
         }
     }
+    public enum ItemType { Weapon, Armor, Potion, Food }
 
-    public class Item 
+    public class Item
     {
         public int weight;
+        public int price;
         public string name;
         public string image;
-        public Item() {
-            this.name = "123";
-            this.image = "123";
-            this.weight = 22;
-        }
-    }
 
-    public class Potion : Item 
+    }
+    public class Weapon : Item
     {
-        public int hp;
-        public Potion(string name, string image, int weight)
-        {
-            this.name = name;
-            this.image = image;
-            this.weight = weight;
-            this.hp = 3;
-
-        }
+        public int Atk;
     }
-
-    public class BigPotion : Potion 
+    public class Armor : Item
     {
-        public BigPotion() : base("","",3) 
+        public int Dfs;
+    }
+    public class Potion : Item
+    {
+        public int heal;
+    }
+    public class Food : Item
+    {
+        public int fullness;
+    }
+
+
+    public class ItemFactory
+    {
+        public static Item Create(ItemType type)
         {
-            this.hp = 30;
+            if (type == ItemType.Weapon)
+            {
+                Weapon weapon = new Weapon();
+                weapon.name = "낡은 직검";
+                weapon.image = "낡은 칼 이미지";
+                weapon.price = 100;
+                weapon.Atk = 10;
+                weapon.weight = 5;
+                return weapon;
+            }
+            else if (type == ItemType.Armor)
+            {
+                Armor armor = new Armor();
+                armor.name = "낡은 갑옷";
+                armor.image = "낡은 갑옷 이미지";
+                armor.price = 80;
+                armor.Dfs = 5;
+                armor.weight = 8;
+                return armor;
+            }
+            else if (type == ItemType.Potion)
+            {
+                Potion potion = new Potion();
+                potion.name = "체력 포션";
+                potion.image = "체력 포션 이미지";
+                potion.price = 10;
+                potion.heal = 50;
+                potion.weight = 1;
+                return potion;
+
+            }
+            else if (type == ItemType.Food)
+            {
+                Food food = new Food();
+                food.name = "스테이크";
+                food.image = "스테이크 이미지";
+                food.price = 5;
+                food.fullness = 20;
+                food.weight = 1;
+                return food;
+            }
+            else 
+            {
+                Console.WriteLine("해당하는 아이템 타입이 없습니다"); 
+                return null;
+            }
+                        
+            
+
         }
     }
+
 
 
 
